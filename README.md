@@ -19,11 +19,18 @@ Integration for Südwind Ambientika Smart decentral ventilation systems
 ## Settings
 
 Enter your Ambientika Username (E-Mail) and Password. 
+
 Click "+" to add a new device. 
+
 Enter the serial number of the device. It is the device's Wifi-name, so you can find it in your router. 
+
 It starts with VMC-xxxxxxxxxxxx. 
+
 Enter the number without the leading VMC, just the 12 digits. 
+
 If needed you can adapt the refresh intervall. 
+
+
 
 ## Changelog
 
