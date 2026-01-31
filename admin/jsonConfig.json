@@ -1,0 +1,53 @@
+{
+    "i18n": true,
+    "type": "panel",
+    "items": {
+        "Username": {
+            "type": "text",
+            "label": "Benutzername",
+            "sm": 12,
+            "md": 6
+        },
+        "Password": {
+            "type": "password",
+            "label": "Passwort",
+            "sm": 12,
+            "md": 6
+        },
+        "_line1": {
+            "type": "divider"
+        },
+        "devices": {
+            "type": "table",
+            "label": "Geräteliste",
+            "sm": 12,
+            "items": [
+                {
+                    "type": "text",
+                    "attr": "serial",
+                    "label": "Seriennummer",
+                    "width": "50%"
+                },
+                {
+                    "type": "text",
+                    "attr": "name",
+                    "label": "Anzeigename (z.B. Wohnzimmer)",
+                    "width": "50%"
+                }
+            ]
+        },
+        "_line2": {
+            "type": "divider"
+        },
+        "refreshInterval": {
+            "type": "number",
+            "label": "Aktualisierungsintervall (Sekunden)",
+            "min": 10,
+            "max": 3600,
+            "def": 60,
+            "sm": 12,
+            "md": 6,
+            "help": "Wie oft sollen die Daten von der Cloud abgerufen werden? (Minimum 10s)"
+        }
+    }
+}

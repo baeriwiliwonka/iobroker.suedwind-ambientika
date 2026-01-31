@@ -1,0 +1,95 @@
+{
+    "common": {
+        "name": "suedwind-ambientika",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "uk": "Початкова версія",
+                "zh-cn": "首次出版"
+            }
+        },
+        "titleLang": {
+            "en": "Südwind Ambientika Smart integration",
+            "de": "Südwind Ambientika Smarte Integration",
+            "ru": "Умная интеграция Südwind Ambientika",
+            "pt": "Integração inteligente Südwind Ambientika",
+            "nl": "Südwind Ambientika Slimme integratie",
+            "fr": "Intégration intelligente Südwind Ambientika",
+            "it": "Südwind Ambientika Integrazione intelligente",
+            "es": "Südwind Ambientika Integración inteligente",
+            "pl": "Inteligentna integracja Südwind Ambientika",
+            "uk": "Südwind Ambientika Smart інтеграція",
+            "zh-cn": "南风 Ambientika 智能集成"
+        },
+        "desc": {
+            "en": "Integration for Südwind Ambientika Smart decentral ventilation systems",
+            "de": "Integration für dezentrale Lüftungssysteme Südwind Ambientika Smart",
+            "ru": "Интеграция с децентрализованными системами вентиляции Südwind Ambientika Smart",
+            "pt": "Integração para sistemas de ventilação descentralizada Südwind Ambientika Smart",
+            "nl": "Integratie voor Südwind Ambientika Slimme decentrale ventilatiesystemen",
+            "fr": "Intégration pour les systèmes de ventilation décentralisés Südwind Ambientika Smart",
+            "it": "Integrazione per i sistemi di ventilazione decentralizzata Südwind Ambientika Smart",
+            "es": "Integración para los sistemas de ventilación descentralizados Südwind Ambientika Smart",
+            "pl": "Integracja z zdecentralizowanymi systemami wentylacji Südwind Ambientika Smart",
+            "uk": "Інтеграція до систем децентралізованої вентиляції Südwind Ambientika Smart",
+            "zh-cn": "集成 Südwind Ambientika Smart 分散通风系统"
+        },
+        "authors": [
+            "baeriwiliwonka <soerenmilimonka@gmx.de>"
+        ],
+        "keywords": [
+            "suedwind",
+            "südwind",
+            "ambientika",
+            "decentral",
+            "ventilation",
+            "climate"
+        ],
+        "licenseInformation": {
+            "type": "free",
+            "license": "MIT"
+        },
+        "platform": "Javascript/Node.js",
+        "icon": "suedwind-ambientika.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/baeriwiliwonka/ioBroker.suedwind-ambientika/main/admin/suedwind-ambientika.png",
+        "readme": "https://github.com/baeriwiliwonka/ioBroker.suedwind-ambientika/blob/main/README.md",
+        "loglevel": "info",
+        "tier": 3,
+        "mode": "daemon",
+        "type": "climate-control",
+        "compact": true,
+        "connectionType": "cloud",
+        "dataSource": "push",
+        "adminUI": {
+            "config": "json"
+        },
+        "dependencies": [
+            {
+                "js-controller": ">=6.0.11"
+            }
+        ],
+        "globalDependencies": [
+            {
+                "admin": ">=7.0.23"
+            }
+        ]
+    },
+    "native": {
+        "Username": "",
+        "Password": "",
+        "devices": [],
+        "refeshInterval": 60
+    },
+    "objects": [],
+    "instanceObjects": []
+}
