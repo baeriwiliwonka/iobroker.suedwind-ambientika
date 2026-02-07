@@ -23,15 +23,25 @@ You can check other adapters for examples or ask in the developer community. Usi
 ### Getting started
 
 Enter your Username (E-Mailadress) and Password from your Ambientika Login.
+
 Press "+" to add a new device.
+
 Enter the serialnumber of the device you want to add.
+
 If you don't know the serial number, you can search for "VMC-" in your router - enter the serial number without "VMC-" - just the numbers.
+
 For a better overview you can enter also a devicename (e.g. roomname)
+
 By pressing "+" you can add several devices.
+
 In addition you can adapt the refresh rate of the adapter to your needs - dafault is 60 seconds.
 
+
+
 The adapter automatically detects Master and Slave devices.
+
 Master devices support changing the Mode, HumidityLevel and FanSpeed.
+
 Those values are read only for Slave devices.
 
 
