@@ -14,8 +14,6 @@
 
 Integration for Südwind Ambientika Smart decentral ventilation systems
 
-## Developer manual
-This section is intended for the developer. It can be deleted later.
 
 ### DISCLAIMER
 
@@ -24,93 +22,41 @@ You can check other adapters for examples or ask in the developer community. Usi
 
 ### Getting started
 
-You are almost done, only a few steps left:
-1. Create a new repository on GitHub with the name `ioBroker.suedwind-ambientika`
-1. Initialize the current folder as a new git repository:  
-    ```bash
-    git init -b main
-    git add .
-    git commit -m "Initial commit"
-    ```
-1. Link your local repository with the one on GitHub:  
-    ```bash
-    git remote add origin https://github.com/baeriwiliwonka/ioBroker.suedwind-ambientika
-    ```
+Enter your Username (E-Mailadress) and Password from your Ambientika Login.
 
-1. Push all files to the GitHub repo:  
-    ```bash
-    git push origin main
-    ```
-1. Add a new secret under https://github.com/baeriwiliwonka/ioBroker.suedwind-ambientika/settings/secrets. It must be named `AUTO_MERGE_TOKEN` and contain a personal access token with push access to the repository, e.g. yours. You can create a new token under https://github.com/settings/tokens.
+Press "+" to add a new device.
 
-1. Head over to [main.js](main.js) and start programming!
+Enter the serialnumber of the device you want to add.
 
-### Best Practices
-We've collected some [best practices](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) regarding ioBroker development and coding in general. If you're new to ioBroker or Node.js, you should
-check them out. If you're already experienced, you should also take a look at them - you might learn something new :)
+If you don't know the serial number, you can search for "VMC-" in your router - enter the serial number without "VMC-" - just the numbers.
 
-### State Roles
-When creating state objects, it is important to use the correct role for the state. The role defines how the state should be interpreted by visualizations and other adapters. For a list of available roles and their meanings, please refer to the [state roles documentation](https://www.iobroker.net/#en/documentation/dev/stateroles.md).
+For a better overview you can enter also a devicename (e.g. roomname)
 
-**Important:** Do not invent your own custom role names. If you need a role that is not part of the official list, please contact the ioBroker developer community for guidance and discussion about adding new roles.
+By pressing "+" you can add several devices.
 
-### Scripts in `package.json`
-Several npm scripts are predefined for your convenience. You can run them using `npm run <scriptname>`
-| Script name | Description |
-|-------------|-------------|
-| `test:js` | Executes the tests you defined in `*.test.js` files. |
-| `test:package` | Ensures your `package.json` and `io-package.json` are valid. |
-| `test:integration` | Tests the adapter startup with an actual instance of ioBroker. |
-| `test` | Performs a minimal test run on package files and your tests. |
-| `check` | Performs a type-check on your code (without compiling anything). |
-| `lint` | Runs `ESLint` to check your code for formatting errors and potential bugs. |
-| `translate` | Translates texts in your adapter to all required languages, see [`@iobroker/adapter-dev`](https://github.com/ioBroker/adapter-dev#manage-translations) for more details. |
+In addition you can adapt the refresh rate of the adapter to your needs - dafault is 60 seconds.
 
-### Writing tests
-When done right, testing code is invaluable, because it gives you the 
-confidence to change your code while knowing exactly if and when 
-something breaks. A good read on the topic of test-driven development 
-is https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92. 
-Although writing tests before the code might seem strange at first, but it has very 
-clear upsides.
 
-The template provides you with basic tests for the adapter startup and package files.
-It is recommended that you add your own tests into the mix.
 
-### Publishing the adapter
-Using GitHub Actions, you can enable automatic releases on npm whenever you push a new git tag that matches the form 
-`v<major>.<minor>.<patch>`. We **strongly recommend** that you do. The necessary steps are described in `.github/workflows/test-and-release.yml`.
+The adapter automatically detects Master and Slave devices.
 
-To get your adapter released in ioBroker, please refer to the documentation 
-of [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
+Master devices support changing the Mode, HumidityLevel and FanSpeed.
 
-### Test the adapter manually on a local ioBroker installation
-In order to install the adapter locally without publishing, the following steps are recommended:
-1. Create a GitHub repository for your adapter if you haven't already
-1. Push your code to the GitHub repository
-1. Use the ioBroker Admin interface or command line to install the adapter from GitHub:
-    * **Via Admin UI**: Go to the "Adapters" tab, click on "Custom Install" (GitHub icon), and enter your repository URL:
-        ```
-        https://github.com/baeriwiliwonka/ioBroker.suedwind-ambientika
-        ```
-        You can also install from a specific branch by adding `#branchname` at the end:
-        ```
-        https://github.com/baeriwiliwonka/ioBroker.suedwind-ambientika#dev
-        ```
-    * **Via Command Line**: Install using the `iob` command:
-        ```bash
-        iob url https://github.com/baeriwiliwonka/ioBroker.suedwind-ambientika
-        ```
-        Or from a specific branch:
-        ```bash
-        iob url https://github.com/baeriwiliwonka/ioBroker.suedwind-ambientika#dev
-        ```
+Those values are read only for Slave devices.
 
-For later updates:
-1. Push your changes to GitHub
-1. Repeat the installation steps above (via Admin UI or `iob url` command) to update the adapter
+
+## Support me
+
+[![Spende mit PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=MJWPJ6M6PQFFL)
+
+
 
 ## Changelog
+
+
+### 0.0.3
+* (baeriwiliwonka)
+- synchronized State names and state values, to ensure that the displayed names in the dropdown menu is the same than the required string for the API, this makes it easier when you want to create your own BlocklySkripts.
 
 
 ### 0.0.2
