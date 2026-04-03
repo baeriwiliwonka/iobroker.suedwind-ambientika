@@ -54,6 +54,12 @@ Those values are read only for Slave devices.
 ## Changelog
 
 
+### 0.0.6
+* (baeriwiliwonka)
+- Added missing Operating-Modes 
+- Slave-Labels for FanSpeed and Humidity Level
+- added images for vis
+
 ### 0.0.5
 * (baeriwiliwonka)
 - Fixed humidityLevel states (Dry/Normal/Moist)

@@ -1,6 +1,6 @@
 {
   "name": "iobroker.suedwind-ambientika",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Integration for Südwind Ambientika Smart decentral ventilation systems",
   "license": "MIT",
   "author": {
@@ -26,7 +26,8 @@
     "node": ">= 20"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^3.3.2"
+    "@iobroker/adapter-core": "^3.3.2",
+    "axios": "^1.6.0"
   },
   "devDependencies": {
     "@iobroker/adapter-dev": "^1.5.0",

@@ -1,11 +1,11 @@
 {
     "common": {
         "name": "suedwind-ambientika",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "news": {
-            "0.0.4": {
-                "de": "Fix für Feuchtigkeitsschwelle (Dry/Normal/Moist)",
-                "en": "Fixed humidityLevel states (Dry/Normal/Moist)"
+            "0.0.6": {
+                "de": "Fehlende Operating-Modes hinzugefügt & Slave-Labels für FanSpeed and Humidity Level",
+                "en": "Added missing Operating-Modes & Slave-Labels for FanSpeed and Humidity Level"
             }
         },
         "titleLang": {
@@ -50,7 +50,7 @@
             "type": "free",
             "license": "MIT"
         },
-        "platform": "Javascript/Node.js",
+        "platform": "Javascript/de.js",
         "icon": "suedwind-ambientika.png",
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/baeriwiliwonka/ioBroker.suedwind-ambientika/main/admin/suedwind-ambientika.png",

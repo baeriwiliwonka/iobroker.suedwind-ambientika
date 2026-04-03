@@ -13,7 +13,7 @@ class SuedwindAmbientika extends utils.Adapter {
     }
 
     async onReady() {
-        this.log.info("Südwind Ambientika v0.0.5: Südwind Ambientika v0.0.5: humidity fix");
+        this.log.info("Südwind Ambientika v0.0.6: Added missing Operating-Modes & Slave-Labels for FanSpeed and Humidity Level & added images for vis");
         let interval = parseInt(this.config.refreshInterval) || 60;
         if (interval < 10) interval = 10;
 
@@ -70,12 +70,13 @@ class SuedwindAmbientika extends utils.Adapter {
                                     "Off": "Off", "Auto": "Auto", "Night": "Night", "AwayHome": "AwayHome", 
                                     "ManualHeatRecovery": "ManualHeatRecovery", "Expulsion": "Expulsion", 
                                     "Intake": "Intake", "TimedExpulsion": "TimedExpulsion", 
-                                    "Surveillance": "Surveillance", "Smart": "Smart" 
+                                    "Surveillance": "Surveillance", "Smart": "Smart",
+                                    "MasterSlaveFlow": "MasterSlaveFlow", "SlaveMasterFlow": "SlaveMasterFlow"
                                 } 
                             },
                             { 
                                 id: "fanSpeed", 
-                                name: "Lüfterstufe", 
+                                name: isMaster ? "Lüfterstufe" : "Lüfterstufe (following Master)", 
                                 type: "string", 
                                 role: "level.speed", 
                                 write: isMaster, 
@@ -83,14 +84,15 @@ class SuedwindAmbientika extends utils.Adapter {
                             },
                             { 
                                 id: "humidityLevel", 
-                                name: "Feuchtigkeitsschwelle", 
+                                name: isMaster ? "Feuchtigkeitsschwelle" : "Feuchtigkeitsschwelle (following Master)", 
                                 type: "string", 
                                 role: "level.humidity", 
                                 write: isMaster, 
                                 states: { 
                                     "Dry": "Dry", 
                                     "Normal": "Normal", 
-                                    "Moist": "Moist" }
+                                    "Moist": "Moist" 
+                                }
                             },
                             { id: "lastOperatingMode", name: "Letzter Modus", type: "string", role: "state", write: false },
                             { id: "temperature", name: "Temperatur", type: "number", role: "value.temperature", unit: "°C", write: false },
@@ -125,8 +127,6 @@ class SuedwindAmbientika extends utils.Adapter {
                         await this.setStateAsync(`${serial}.humidity`, d.humidity || 0, true);
                         await this.setStateAsync(`${serial}.airQuality`, d.airQuality || "N/A", true);
                         
-                        // FIX: Hier wird d.signalStrenght (mit Fehler) von der API gelesen, 
-                        // aber in unseren korrekt benannten Datenpunkt .signalStrength geschrieben.
                         await this.setStateAsync(`${serial}.signalStrength`, d.signalStrenght || 0, true);
                         
                         await this.setStateAsync(`${serial}.isOnline`, true, true);
@@ -181,6 +181,7 @@ class SuedwindAmbientika extends utils.Adapter {
             });
             const cur = statusRes.data;
 
+            // Payload Zusammenbau - Nutzt die neuen Werte falls gesetzt, sonst den aktuellen Stand
             let payload = {
                 deviceSerialNumber: serial,
                 operatingMode: stateName === "operatingMode" ? state.val : cur.operatingMode,
