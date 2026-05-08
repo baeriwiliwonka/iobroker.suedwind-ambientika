@@ -13,7 +13,7 @@ class SuedwindAmbientika extends utils.Adapter {
     }
 
     async onReady() {
-        this.log.info("Südwind Ambientika v0.0.6: Added missing Operating-Modes & Slave-Labels for FanSpeed and Humidity Level & added images for vis");
+        this.log.info("Südwind Ambientika v0.0.7: Filter-Reset erfolgreich integriert");
         let interval = parseInt(this.config.refreshInterval) || 60;
         if (interval < 10) interval = 10;
 
@@ -167,11 +167,21 @@ class SuedwindAmbientika extends utils.Adapter {
             });
             const token = authRes.data.jwtToken;
 
+            // --- FILTER RESET LOGIK (GET) ---
             if (stateName === "resetFilter") {
-                await axios.post("https://app.ambientika.eu:4521/device/reset-filter", { deviceSerialNumber: serial }, {
-                    headers: { Authorization: `Bearer ${token}` }
-                });
-                await this.setStateAsync(id, false, true);
+                try {
+                    await axios.get(`https://app.ambientika.eu:4521/device/reset-filter?deviceSerialNumber=${serial}`, {
+                        headers: { 
+                            Authorization: `Bearer ${token}`,
+                            "Accept": "application/json"
+                        }
+                    });
+                    this.log.info(`Filter-Reset für ${serial} erfolgreich durchgeführt.`);
+                    await this.setStateAsync(id, false, true);
+                    setTimeout(() => this.updateData(), 3000);
+                } catch (resetErr) {
+                    this.log.error(`Fehler beim Filter-Reset: ${resetErr.message}`);
+                }
                 return;
             }
 

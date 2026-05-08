@@ -1,11 +1,11 @@
 {
     "common": {
         "name": "suedwind-ambientika",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "news": {
             "0.0.6": {
-                "de": "Fehlende Operating-Modes hinzugefügt & Slave-Labels für FanSpeed and Humidity Level",
-                "en": "Added missing Operating-Modes & Slave-Labels for FanSpeed and Humidity Level"
+                "de": "Filter Reset funktioniert jetzt",
+                "en": "Filter reset is now working"
             }
         },
         "titleLang": {

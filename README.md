@@ -54,6 +54,10 @@ Those values are read only for Slave devices.
 ## Changelog
 
 
+### 0.0.7
+* (baeriwiliwonka)
+- Filter reset is now working
+
 ### 0.0.6
 * (baeriwiliwonka)
 - Added missing Operating-Modes 
